@@ -1,21 +1,40 @@
 var gulp = require('gulp')
-
 var pug = require('gulp-pug')
+var sass = require('gulp-sass')
+
+// setting : paths
+var paths = {
+  'scss': './assets/sass/',
+  'css': './public/css/',
+  'pug': './assets/pug/',
+  'html': './public/'
+}
+
+// setting : Sass Options
+var sassOptions = {
+  outputStyle: 'compressed'
+}
+
+// setting : Pug Options
+var pugOptions = {
+  pretty: true
+}
+
 gulp.task('pug', () => {
   // _ から始まるファイルはコンパイル対象外。インクルード用のファイルのため
-  return gulp.src(['./assets/pug/**/*.pug', '!./assets/pug/**/_*.pug'])
-    .pipe(pug({ pretty: true }))
-    .pipe(gulp.dest('./public/'))
+  return gulp.src([paths.pug + '**/*.pug', '!' + paths.pug + '**/_*.pug'])
+    .pipe(pug(pugOptions))
+    .pipe(gulp.dest(paths.html))
 })
 
-var sass = require('gulp-sass')
+// Sass
 gulp.task('sass', function() {
-  gulp.src('./assets/sass/**/*.scss')
-  .pipe(sass())
-  .pipe(gulp.dest('./public/css'))
+  gulp.src(paths.scss + '**/*.scss')
+  .pipe(sass(sassOptions).on('error', sass.logError))
+  .pipe(gulp.dest(paths.css))
 })
 
 gulp.task('watch', function() {
-  gulp.watch('./assets/sass/*.scss', ['sass'])
+  gulp.watch(paths.scss + '**/*.scss', ['sass'])
 })
 gulp.task('default', ['pug', 'sass'])

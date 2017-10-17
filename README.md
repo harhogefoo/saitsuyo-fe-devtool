@@ -1,4 +1,4 @@
-# sample-pug
+# Pug + sass + gulp
 ## 環境構築
 ```
 $ yarn global add pug
