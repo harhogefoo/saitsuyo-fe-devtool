@@ -1,0 +1,25 @@
+
+$color-base: #123456;
+$color-sub: #333333;
+$color-key: #ff8a8a;
+
+$fontsize-base: 16px;
+$fontsize-title: 30px;
+
+$color-header: #111111;
+$color-footer: #222222;
+
+body {
+  color: $color-base;
+  font-size: $fontsize-base;
+}
+
+header.header {
+  backgorund-color: $color-header;
+}
+
+footer.footer {
+  backgoround-color: $color-footer;
+}
+
+

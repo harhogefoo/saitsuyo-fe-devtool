@@ -1,0 +1,27 @@
+//- htmlに反映したくないコメント
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" href="css/style.css")
+    title Pug Lesson
+  // コメントです
+  body
+    include template/_header
+    h1 Pugはじめました
+    main.main
+      p Pugでhtml作ったよ
+    .hoge divは省略できる。クラスはhoge
+    #id divは省略できる。idはid
+    img(id="id" class="images" src="./img/img01.jpg" alt="画像1")
+    img#id.images(src="./img/img01.jpg" alt="画像1")
+    ul
+      li: a(href="#") List01
+      li: a(href="#") List02
+      li: a(href="#") List03
+    p こんにちは。
+      br
+      | ほげほげ
+      strong ふがふが
+      | ぴよぴよ
+    include template/_footer
