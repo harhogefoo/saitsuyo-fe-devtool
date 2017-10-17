@@ -1,4 +1,8 @@
 # Pug + sass + gulp
+- pug ... HTMLテンプレートエンジン
+- sass ... css
+- autoprefixer ... ブラウザごとに異なるcssを自動付与
+- gulp ... タスクランナー
 ## 環境構築
 ```
 $ yarn global add pug

@@ -1,6 +1,7 @@
 var gulp = require('gulp')
 var pug = require('gulp-pug')
 var sass = require('gulp-sass')
+var autoprefixer = require('gulp-autoprefixer')
 
 // setting : paths
 var paths = {
@@ -31,6 +32,7 @@ gulp.task('pug', () => {
 gulp.task('sass', function() {
   gulp.src(paths.scss + '**/*.scss')
   .pipe(sass(sassOptions).on('error', sass.logError))
+  .pipe(autoprefixer())
   .pipe(gulp.dest(paths.css))
 })
 
