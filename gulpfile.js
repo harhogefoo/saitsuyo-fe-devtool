@@ -2,6 +2,9 @@ var gulp = require('gulp')
 var pug = require('gulp-pug')
 var sass = require('gulp-sass')
 var autoprefixer = require('gulp-autoprefixer')
+var notify = require('gulp-notify')
+var plumber = require('gulp-plumber')
+var browserSync = require('browser-sync')
 
 // setting : paths
 var paths = {
@@ -13,7 +16,8 @@ var paths = {
 
 // setting : Sass Options
 var sassOptions = {
-  outputStyle: 'compressed'
+  outputStyle: 'compressed',
+  errLogToConsole: false
 }
 
 // setting : Pug Options
@@ -21,9 +25,10 @@ var pugOptions = {
   pretty: true
 }
 
-gulp.task('pug', () => {
+gulp.task('pug', function() {
   // _ から始まるファイルはコンパイル対象外。インクルード用のファイルのため
-  return gulp.src([paths.pug + '**/*.pug', '!' + paths.pug + '**/_*.pug'])
+  gulp.src([paths.pug + '**/*.pug', '!' + paths.pug + '**/_*.pug'])
+    .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
     .pipe(pug(pugOptions))
     .pipe(gulp.dest(paths.html))
 })
@@ -31,12 +36,25 @@ gulp.task('pug', () => {
 // Sass
 gulp.task('sass', function() {
   gulp.src(paths.scss + '**/*.scss')
-  .pipe(sass(sassOptions).on('error', sass.logError))
-  .pipe(autoprefixer())
-  .pipe(gulp.dest(paths.css))
+   .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+   .pipe(sass(sassOptions))
+   .pipe(autoprefixer())
+   .pipe(gulp.dest(paths.css))
+})
+
+// Browser Sync
+gulp.task('browser-sync', function() {
+  browserSync({ server: { baseDir: paths.html } })
+  gulp.watch(paths.html + "**/*.html", ['reload'])
+  gulp.watch(paths.css + "**/*.css", ['reload'])
+})
+
+gulp.task('reload', function() {
+  browserSync.reload()
 })
 
 gulp.task('watch', function() {
   gulp.watch(paths.scss + '**/*.scss', ['sass'])
+  gulp.watch([paths.pug + '**/*.pug', '!' + paths.pug + '**/_*.pug'], ['pug']);
 })
-gulp.task('default', ['pug', 'sass'])
+gulp.task('default', ['browser-sync', 'watch'])
