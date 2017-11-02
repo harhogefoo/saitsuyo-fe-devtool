@@ -1,0 +1,67 @@
+{
+  "extends": "standard",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    // Possible Errors
+    "no-console": "error",
+    "no-unexpected-multiline": "error",
+
+    // Best Practices
+    "class-methods-use-this": "off",
+    "consistent-return": ["error", {"treatUndefinedAsUnspecified": true}],
+    "dot-location": ["error", "property"],
+    "no-implicit-globals": "error",
+    "no-invalid-this": "error",
+    "no-param-reassign": ["error", {"props": false}],
+    "no-unmodified-loop-condition": "error",
+    "no-useless-call": "error",
+    "no-void": "off",
+
+    // Variables
+    "no-catch-shadow": "error",
+    "no-label-var": "error",
+    "no-shadow": ["error", {"allow": ["cb", "next", "req", "res", "err", "error"]}],
+    "no-undef-init": "error",
+    "no-undefined": "error",
+    "no-use-before-define": ["error", "nofunc"],
+    "no-unused-expressions": ["error", {"allowShortCircuit": true}],
+    "no-unused-vars": ["error", {"args": "none"}],
+    "prefer-const": "error",
+
+    // Node.js
+    "callback-return": "error",
+    "no-path-concat": "error",
+
+    // Stylistic Issues
+    "comma-dangle": ["error", "always-multiline"],
+    "linebreak-style": ["error", "unix"],
+    "no-plusplus": "off",
+
+    // ECMAScript 6
+    "arrow-parens": ["error", "always"],
+    "constructor-super": "error",
+    "generator-star-spacing": ["error", "after"],
+    "no-this-before-super": "error",
+    "prefer-arrow-callback": ["error", {"allowNamedFunctions": true}],
+    "prefer-spread": "error",
+    "prefer-template": "off",
+    "func-names": ["error", "never"],
+    "new-cap": "off",
+
+    // import
+    "import/order": [
+      "error", {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+      }
+    ],
+
+    // coding styles
+    "max-len": ["error", 100],
+    "space-before-function-paren": "off"
+  }
+}
