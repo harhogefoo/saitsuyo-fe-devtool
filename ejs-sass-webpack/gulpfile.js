@@ -59,6 +59,7 @@ gulp.task('browser-sync', () => {
   })
   gulp.watch(paths.html + '**/*.html', ['reload'])
   gulp.watch(paths.css + '**/*.css', ['reload'])
+  gulp.watch(paths.in_js + '**/*.js', ['reload'])
 })
 
 gulp.task('reload', () => {

@@ -1,4 +1,5 @@
 // sub.jsファイルを読み込む
-import { hello } from './sub'
+// import { hello } from './sub'
 
-hello()
+// TODO: リロードされるたびに呼ばれるのは鬱陶しいので、ボタン押下で呼ばれるようにする
+// hello()

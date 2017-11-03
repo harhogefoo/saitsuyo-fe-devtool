@@ -9,9 +9,12 @@ $fontsize-title: 30px;
 $color-header: #00ff00;
 $color-footer: #ff0000;
 
+$color-body: #Dfffff;
+
 body {
   color: $color-base;
   font-size: $fontsize-base;
+  background: $color-body;
 }
 
 header.header {

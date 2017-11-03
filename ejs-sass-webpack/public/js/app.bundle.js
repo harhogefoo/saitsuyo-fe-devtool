@@ -65,26 +65,13 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sub__ = __webpack_require__(1);
 // sub.jsファイルを読み込む
+// import { hello } from './sub'
 
-
-Object(__WEBPACK_IMPORTED_MODULE_0__sub__["a" /* hello */])()
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = hello;
-function hello() {
-  alert('helloメソッドが実行された')
-}
+// TODO: リロードされるたびに呼ばれるのは鬱陶しいので、ボタン押下で呼ばれるようにする
+// hello()
 
 
 /***/ })
