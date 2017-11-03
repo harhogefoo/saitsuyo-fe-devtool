@@ -9,22 +9,25 @@ const notify = require('gulp-notify')
 const plumber = require('gulp-plumber')
 const browserSync = require('browser-sync')
 
-const webpackConfig = require('./webpack.config')
-
-// setting : paths
 const paths = {
   'html': './public/',
   'css': './public/css/',
-  'in-js': './src/js/',
+  'in_js': './src/js/',
   'ejs': './src/ejs/',
   'scss': './src/scss/',
-  'out-js': './public/js/',
+  'out_js': './public/js/',
 }
 
-// setting : Sass Options
 const sassOptions = {
   outputStyle: 'expanded',
   errLogToConsole: false,
+}
+
+const webpackOptions = {
+  entry: paths.in_js + 'main.js',
+  output: {
+    filename: paths.out_js + 'app.bundle.js',
+  },
 }
 
 gulp.task('ejs', () => {
@@ -44,6 +47,10 @@ gulp.task('sass', () => {
     .pipe(gulp.dest(paths.css))
 })
 
+gulp.task('webpack', () => {
+  return webpackStream(webpackOptions, webpack).pipe(gulp.dest(''))
+})
+
 // Browser Sync
 gulp.task('browser-sync', () => {
   browserSync({
@@ -61,11 +68,7 @@ gulp.task('reload', () => {
 gulp.task('watch', () => {
   gulp.watch(paths.scss + '**/*.scss', ['sass'])
   gulp.watch([paths.ejs + '**/*.ejs', paths.ejs + '**/_*.ejs'], ['ejs'])
-})
-
-gulp.task('webpack', () => {
-  return webpackStream(webpackConfig, webpack)
-    .pipe(gulp.dest(''))
+  gulp.watch(paths.in_js + '**/*.js', ['webpack'])
 })
 
 gulp.task('default', ['ejs', 'sass', 'webpack', 'browser-sync', 'watch'])
