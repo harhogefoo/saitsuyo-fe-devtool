@@ -72,4 +72,3 @@ gulp.task('watch', () => {
 })
 
 gulp.task('default', ['ejs', 'sass', 'webpack', 'browser-sync', 'watch'])
-// gulp.task('default', ['webpack'])
