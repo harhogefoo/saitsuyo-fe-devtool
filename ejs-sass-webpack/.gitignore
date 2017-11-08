@@ -112,6 +112,6 @@ typings/
 # dotenv environment variables file
 .env
 
-public/
+public/*
 
-
+!.gitkeep
