@@ -3,7 +3,7 @@
 - sass ... css
 - autoprefixer ... ブラウザごとに異なるcssを自動付与
 - plumber ... エラーが発生してもwatchを止めないようにする
-- notify ... デスクトップ通知(動作していない)
+- notify ... デスクトップ通知
 - browser-sync ... ブラウザをリロードする
 - gulp ... タスクランナー
 
