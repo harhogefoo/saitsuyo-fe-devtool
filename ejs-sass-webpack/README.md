@@ -57,7 +57,6 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 全てを理解していなくても、開発は問題なく行えますが、挙動に問題がある場合・カスタマイズしたい場合などに参照してみてください。
 
 - [gulp.js](http://gulpjs.com/)
-- [browserify](http://browserify.org/)
 - [browser-sync](https://www.browsersync.io/)
 - [jQuery](https://jquery.com/)
 - [Reset CSS](http://meyerweb.com/eric/tools/css/reset/)

@@ -8,6 +8,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const notify = require('gulp-notify')
 const plumber = require('gulp-plumber')
 const browserSync = require('browser-sync')
+const packageImporter = require('node-sass-package-importer')
 
 const gulpIf = require('gulp-if')
 const minimist = require('minimist')
@@ -37,6 +38,9 @@ const config = {
   sassOptions: {
     outputStyle: 'expanded',
     errLogToConsole: false,
+    importer: packageImporter({
+      exetnsions: ['.scss', '.css'],
+    }),
   },
   webpackOptions: {
     entry: paths.in_js + 'main.js',
