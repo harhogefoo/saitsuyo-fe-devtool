@@ -33,13 +33,16 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 
 - `yarn start`
   - すべてのソースコードをビルドし、開発用ブラウザを立ち上げ、その後ソースコードに修正があれば自動ビルド・自動ブラウザ更新します
+  - ビルドしたソースコードは`public`ディレクトリ内に出力されます。
   - 基本的には、このコマンドを実行しておくだけで開発が可能なはずです。
 
 ## リリース作業
 
 - `yarn release`
   - すべてのソースコードをビルドし、開発用ブラウザを立ち上げ、その後ソースコードに修正があれば自動ビルド・自動ブラウザ更新します
+  - ビルドしたソースコードは`public`ディレクトリ内に出力されます。
   - 公開用にCSSとJSの圧縮したものを出力します。
+  - ソースコードを納品する場合は`yarn release`を行った後の`public`ディレクトリ内部のコードを利用すること。
 
 ## 使用言語
 
@@ -60,3 +63,43 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 - [browser-sync](https://www.browsersync.io/)
 - [jQuery](https://jquery.com/)
 - [Reset CSS](http://meyerweb.com/eric/tools/css/reset/)
+
+## 開発ガイドライン
+
+### EJSパーツ分割の粒度
+
+以下の粒度でパーツに分割する
+- header
+- footer
+- sidemenu
+
+Atomic Designの概念を基づいた分割はしない。
+
+モーダルをパーツ化するかどうかは実装しながら決定する。
+
+### CSSの記法
+
+SMACSSを採用
+
+#### サンプルコード
+
+```.scss
+.l-main{
+  width: 80%;
+  float: left;
+}
+.l-fixed .l-main { /* px指定にする場合は、bodyタグ等にl-fixedクラスを付与 */
+  width: 640px;
+}
+```
+
+```
+<div class="l-main">
+  <div class="box">
+    <h2 class="box-title">boxタイトル</h2>
+    <p class="box-description">説明</p>
+  </div>
+</div>
+```
+
+参考: [CSS設計における3大メソッド](http://www.risewill.co.jp/blog/archives/5652)
