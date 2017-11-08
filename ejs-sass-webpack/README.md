@@ -93,7 +93,7 @@ SMACSSを採用
 }
 ```
 
-```
+```.html
 <div class="l-main">
   <div class="box">
     <h2 class="box-title">boxタイトル</h2>
