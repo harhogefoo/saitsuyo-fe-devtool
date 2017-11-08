@@ -1,13 +1,1 @@
-body {
-  color: #123456;
-  font-size: 16px;
-  background: #Dfffff;
-}
-
-header.header {
-  background: #5fffff;
-}
-
-footer.footer {
-  background: #ff8a8a;
-}
+body{color:#123456;font-size:16px;background:#Dfffff}header.header{background:#5fffff}footer.footer{background:#ff8a8a}
