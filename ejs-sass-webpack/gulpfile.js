@@ -48,6 +48,7 @@ const config = {
       filename: 'app.bundle.js',
     },
     plugins: webpackPlugins,
+    devtool: 'source-map'
   },
   envProduction: production,
 }

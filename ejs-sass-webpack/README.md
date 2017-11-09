@@ -2,17 +2,14 @@ ejs-sass-webpack
 ====
 
 ## 事前に用意するもの
-- node.js (version 5.0.0以上)
+- Node.js (version 8.1.1)
 
 参考: [Macにnode.jsをインストールする手順](https://qiita.com/akakuro43/items/600e7e4695588ab2958d)
 
 ## 環境構築
 ```
 # 開発に使うnpmパッケージをインストール
-yarn
-
-# または
-npm install
+$ yarn install
 ```
 
 ## ファイル構成
@@ -39,8 +36,6 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 ## リリース作業
 
 - `yarn release`
-  - すべてのソースコードをビルドし、開発用ブラウザを立ち上げ、その後ソースコードに修正があれば自動ビルド・自動ブラウザ更新します
-  - ビルドしたソースコードは`public`ディレクトリ内に出力されます。
   - 公開用にCSSとJSの圧縮したものを出力します。
   - ソースコードを納品する場合は`yarn release`を行った後の`public`ディレクトリ内部のコードを利用すること。
 
@@ -67,19 +62,16 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 ## 開発ガイドライン
 
 ### EJSパーツ分割の粒度
-
 以下の粒度でパーツに分割する
 - header
 - footer
 - sidemenu
 
-Atomic Designの概念を基づいた分割はしない。
-
 モーダルをパーツ化するかどうかは実装しながら決定する。
 
 ### CSSの記法
 
-SMACSSを採用
+[SMACSS](https://smacss.com/ja)を採用
 
 #### サンプルコード
 
@@ -102,4 +94,5 @@ SMACSSを採用
 </div>
 ```
 
-参考: [CSS設計における3大メソッド](http://www.risewill.co.jp/blog/archives/5652)
+### JSの開発について
+// 項目は要検討。
