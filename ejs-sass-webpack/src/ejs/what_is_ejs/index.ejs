@@ -1,0 +1,13 @@
+<% var meta = { title: 'EJSの使い方', desc: 'EJSの使い方ページです。' }; %>
+<%- include('../common/_header', { meta: meta }) %>
+<h1>EJSの使い方</h1>
+<p>
+    EJSはHTMLテンプレートエンジンです。<br>
+    複数のEJSファイルをまとめて、HTMLファイルとして出力することが可能です。<br>
+    ヘッダーやフッターなど、共通する部分はEJSで分割し<br>
+    include関数を利用してEJSファイルを呼び出しています。<br>
+    通常のHTML記法で書くことができます。
+</p>
+
+<a href="/index.html">TOPに戻る</a>
+<% include ../common/_footer %>

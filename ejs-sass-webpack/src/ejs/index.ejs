@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>EJSの使い方</title>
-  </head>
-<body>
-<% include common/_header %>
-<h1>EJSの使い方</h1>
-<h2>特にありません</h2>
-<p>通常のHTML記法で書くことができます</p>
-<p>EJSの役割はテンプレートです</p>
-<a href="scss/index.html">Sass(scss)の使い方</a>
-
+<% var meta = { title: 'TOP', desc:'TOPです。' }; %>
+<%- include('common/_header', { meta: meta }) %>
+<h1>TOP</h1>
 <ul>
+  <li><a href="what_is_ejs/index.html">EJSの使い方</a></li>
+  <li><a href="what_is_sass/index.html">Sass(scss)の使い方</a></li>
   <li>要素1</li>
   <li>要素2</li>
   <li>要素3</li>
@@ -23,8 +13,5 @@
   <li>要素7</li>
   <li>要素8</li>
 </ul>
-
 <% include common/_footer %>
-<script type="text/javascript" src="/js/app.bundle.js"></script>
-</body>
-</html>
+

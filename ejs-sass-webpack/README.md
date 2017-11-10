@@ -3,12 +3,27 @@ ejs-sass-webpack
 
 ## 事前に用意するもの
 - Node.js (version 8.1.1)
+- yarn (version 1.0.0)
 
+### 環境構築
+
+#### nodebrewを利用してインストールする場合
+```bash
+$ brew install nodebrew
+$ nodebrew -v
+$ nodebrew list
+$ nodebrew install-binary 8.8.1
+$ nodebrew use v8.8.1
+```
 参考: [Macにnode.jsをインストールする手順](https://qiita.com/akakuro43/items/600e7e4695588ab2958d)
 
-## 環境構築
+#### yarnをインストール
+```bash
+$ npm install -g yarn@1.1.0
 ```
-# 開発に使うnpmパッケージをインストール
+
+#### 開発に使うnpmパッケージをインストール
+```
 $ yarn install
 ```
 
