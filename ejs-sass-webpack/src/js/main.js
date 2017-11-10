@@ -1,5 +1,14 @@
-// sub.jsファイルを読み込む
-// import { hello } from './sub'
+import $ from 'jquery'
+import fadeout from './components/fadeout'
+import changeText from './components/changeText'
+import showAlert from './components/showAlert'
+import addBorder from './components/addBorder'
+import xhrAccess from './components/xhrAccess'
 
-// TODO: リロードされるたびに呼ばれるのは鬱陶しいので、ボタン押下で呼ばれるようにする
-// hello()
+$(() => {
+  showAlert()
+  changeText()
+  fadeout()
+  addBorder()
+  xhrAccess()
+})

@@ -110,4 +110,31 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 ```
 
 ### JSの開発について
-// 項目は要検討。
+- ES2015(ECMAScript6)以降の記法で記述すること
+- ES Modulesで記述すること
+- 機能ごとにファイルを分割すること※
+
+※ 開発し辛い場合はルールを変更する。
+
+#### サンプルコード
+```.js
+// main.js
+import $ from 'jquery'
+import fadeout from './components/fadeout'
+import changeText from './components/changeText'
+import showAlert from './components/showAlert'
+import addBorder from './components/addBorder'
+import xhrAccess from './components/xhrAccess'
+
+$(() => {
+  showAlert()
+  changeText()
+  fadeout()
+  addBorder()
+  xhrAccess()
+})
+```
+
+#### 参考
+- [ECMAScript 6 Tutorial](http://ccoenraets.github.io/es6-tutorial/)
+- [ES Modules と Node.js について](http://yosuke-furukawa.hatenablog.com/entry/2016/05/10/111102)
