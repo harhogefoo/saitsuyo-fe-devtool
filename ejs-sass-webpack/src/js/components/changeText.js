@@ -1,8 +1,14 @@
 import $ from 'jquery'
 
+let isAdd = false
 const changeText = () => {
-  $('#change-text-button').click(() => {
-    $('#hoge').text('changed!')
+  $('.change-text').click(() => {
+    if (isAdd) {
+      $('.hoge').text('sample')
+    } else {
+      $('.hoge').text('changed!')
+    }
+    isAdd = !isAdd
   })
 }
 

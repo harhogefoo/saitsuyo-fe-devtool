@@ -62,7 +62,8 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 - Javascript: [ES2015(ECMAScript 6)](https://babeljs.io/docs/learn-es2015/)
 
 ## 対応ブラウザ
-- 各種モダンブラウザ最新バージョン・IE10以上
+- Google Chrome
+- Fire Fox
 
 ## 依存ライブラリ
 
@@ -112,11 +113,15 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 ### JSの開発について
 - ES2015(ECMAScript6)以降の記法で記述すること
 - ES Modulesで記述すること
-- 機能ごとにファイルを分割すること※
+- 実装する機能ごとにファイルを分割すること
+  - フェードアウトする(`./components/fadeout`)
+  - テキストを変更する(`./components/changeText`)
+  - アラートを表示する(`./components/showAlert`)
+  - ボーダーを付与する(`./components/addBorder`)
+  - etc.
+- 実装した機能は `main.js`で読み込むこと ※サンプルコード参照
 
-※ 開発し辛い場合はルールを変更する。
-
-#### サンプルコード
+#### `main.js` で 機能ごとに実装した `.js` ファイルを読み込む
 ```.js
 // main.js
 import $ from 'jquery'
