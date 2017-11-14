@@ -7,15 +7,16 @@ ejs-sass-webpack
 
 ### 環境構築
 
-#### nodebrewを利用してインストールする場合
+#### nodenvを利用してインストールする場合
+[nodenvを使ってMacにNode.jsの環境を構築する](https://qiita.com/mtakahashi-ivi/items/cfa9bc533e25d7f726eb)
+上記にnodenvのインストールを行った後
 ```bash
-$ brew install nodebrew
-$ nodebrew -v
-$ nodebrew list
-$ nodebrew install-binary 8.8.1
-$ nodebrew use v8.8.1
+$ nodenv install 8.8.1
+$ nodenv global 8.8.1
+$ nodenv rehash
+$ node -v
+8.8.1
 ```
-参考: [Macにnode.jsをインストールする手順](https://qiita.com/akakuro43/items/600e7e4695588ab2958d)
 
 #### yarnをインストール
 ```bash
