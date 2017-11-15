@@ -1,8 +1,8 @@
 import $ from 'jquery'
 
 const fadeout = () => {
-  $('.fadeout').click(() => {
-    $('.hoge').fadeToggle()
+  $('.req-fadeout').click(() => {
+    $('.res-fadeout').fadeToggle()
   })
 }
 

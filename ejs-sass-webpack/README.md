@@ -61,9 +61,9 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 - CSSメタ言語: [Sass(scss)](http://sass-lang.com/)
 - Javascript: [ES2015(ECMAScript 6)](https://babeljs.io/docs/learn-es2015/)
 
-## 対応ブラウザ
-- Google Chrome
-- Fire Fox
+## 開発推奨ブラウザ
+- Google Chrome(バージョン: 62.0.3202.94)
+
 
 ## 依存ライブラリ
 
@@ -77,13 +77,36 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 
 ## 開発ガイドライン
 
-### EJSパーツ分割の粒度
+### EJSの開発ルール
+- 開発ディレクトリは `src/ejs` とする
+- `src/ejs/common` には、共通パーツを実装する(共通パーツの分割の粒度は後述）
+- ページ名ごとにディレクトリを作成し、`index.ejs` 内に該当ページのEJSを実装すること
+  - 例: `src/ejs/what_is_ejs/index.ejs`
+  
+#### ディレクトリ構成
+```
+src
+ └── ejs
+     ├── common(共通パーツ)
+     ├── index.js(index.htmlに適用するJavaScript)
+     ├── how_to_write_js(ページ名)
+     │   └── index.ejs
+     ├── what_is_ejs(ページ名)
+     │   └── index.ejs
+     ├── what_is_sass(ページ名)
+     │   └── index.ejs
+     ...
+```
+  
+
+#### EJSパーツ分割の粒度
 以下の粒度でパーツに分割する
 - header
 - footer
 - sidemenu
 
-モーダルをパーツ化するかどうかは実装しながら決定する。
+モーダルをパーツ化するかどうかは実装を行いながら決定する。
+
 
 ### CSSの記法
 
@@ -110,35 +133,39 @@ shellから以下のコマンドを実行することで、各種ビルド・タ
 </div>
 ```
 
-### JSの開発について
+### JavaScriptの開発ルール
+
+#### JavaScriptの記述方法
 - ES2015(ECMAScript6)以降の記法で記述すること
 - ES Modulesで記述すること
-- 実装する機能ごとにファイルを分割すること
-  - フェードアウトする(`./components/fadeout`)
-  - テキストを変更する(`./components/changeText`)
-  - アラートを表示する(`./components/showAlert`)
-  - ボーダーを付与する(`./components/addBorder`)
-  - etc.
-- 実装した機能は `main.js`で読み込むこと(下記参照)
 
-#### `main.js` で 機能ごとに実装した `.js` ファイルを読み込む
-```.js
-// main.js
-import $ from 'jquery'
-import fadeout from './components/fadeout'
-import changeText from './components/changeText'
-import showAlert from './components/showAlert'
-import addBorder from './components/addBorder'
-import xhrAccess from './components/xhrAccess'
+#### ディレクトリ構成と制約
+- 開発ディレクトリは `src/js/` とする
+- ページ名ごとにディレクトリを作成し、`index.js` 内に該当ページのJavaScriptを実装すること
+  - 例: `src/js/what_is_ejs/index.js`
+- `src/js/utility/` 内には、汎用機能を実装すること
+  - 汎用機能を実装する場合、class名の接頭辞に `req-[汎用機能名]`を付与すること
+    - 例: `<button class="req-add-border">`
+  - 汎用機能の対象となる要素のclass名は接頭辞に `res-[汎用機能名]`を付与すること
+    - 例: `<div class="res-add-border">`
+  - 機能を汎用化することは名前空間の衝突を引き起こす可能性がある
+  - 機能の汎用化については、開発に複雑さを招くことを考慮し、開発を行いながら`継続/廃止`の検討をする
 
-$(() => {
-  showAlert()
-  changeText()
-  fadeout()
-  addBorder()
-  xhrAccess()
-})
 ```
+└── js
+    ├── utility(汎用機能)
+    ├── index.js(index.htmlに適用するJavaScript)
+    ├── how_to_write_js(ページ名)
+    │   └── index.js
+    ├── what_is_ejs(ページ名)
+    │   └── index.js
+    ├── what_is_sass(ページ名)
+    │   └── index.js
+    ...
+```
+
+#### 出力先
+`src/js/` 内に記述したJavaScriptは、`public/resources/js/` に出力されます。
 
 #### 参考
 - [ECMAScript 6 Tutorial](http://ccoenraets.github.io/es6-tutorial/)

@@ -2,11 +2,11 @@ import $ from 'jquery'
 
 let isAdd = false
 const addBorder = () => {
-  $('.change-css').click(() => {
+  $('.req-add-border').click(() => {
     if (isAdd) {
-      $('.hoge').css('border', 'none')
+      $('.res-add-border').css('border', 'none')
     } else {
-      $('.hoge').css('border', '3px solid red')
+      $('.res-add-border').css('border', '3px solid red')
     }
     isAdd = !isAdd
   })

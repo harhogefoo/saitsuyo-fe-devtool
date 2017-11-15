@@ -2,11 +2,12 @@ import $ from 'jquery'
 
 let isAdd = false
 const changeText = () => {
-  $('.change-text').click(() => {
+  $('.req-change-text').click(() => {
+    console.log("oukasareteru")
     if (isAdd) {
-      $('.hoge').text('sample')
+      $('.res-change-text').text('sample')
     } else {
-      $('.hoge').text('changed!')
+      $('.res-change-text').text('changed!')
     }
     isAdd = !isAdd
   })

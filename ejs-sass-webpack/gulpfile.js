@@ -15,11 +15,11 @@ const minimist = require('minimist')
 
 const paths = {
   'html': './public/',
-  'css': './public/css/',
+  'css': './public/resources/css/',
   'in_js': './src/js/',
   'ejs': './src/ejs/',
   'scss': './src/scss/',
-  'out_js': './public/js/',
+  'out_js': './public/resources/js',
 }
 
 const envSettings = {
@@ -43,12 +43,18 @@ const config = {
     }),
   },
   webpackOptions: {
-    entry: paths.in_js + 'main.js',
+    entry: {
+      'index': paths.in_js + 'index.js',
+      'what_is_ejs/index': paths.in_js + 'what_is_ejs/index.js',
+      'what_is_sass/index': paths.in_js + 'what_is_sass/index.js',
+      'how_to_write_js/index': paths.in_js + 'how_to_write_js/index.js',
+    },
     output: {
-      filename: 'app.bundle.js',
+      path: '/public',
+      filename: '[name].bundle.js',
     },
     plugins: webpackPlugins,
-    devtool: 'source-map'
+    devtool: 'source-map',
   },
   envProduction: production,
 }
