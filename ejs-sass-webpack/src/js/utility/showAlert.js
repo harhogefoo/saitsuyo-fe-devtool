@@ -1,13 +1,10 @@
-import $ from 'jquery'
 
-const showAlert = () => {
-  $('.req-show-alert').click(() => {
-    if (!window.confirm('本当に？')) {
-      window.location.href = '/'
-    } else {
-      window.location.href = '/'
-    }
-  })
+const showAlert = (message, ok = () => {}, ng = () => {}) => {
+  if (!window.confirm(message)) {
+    ng()
+  } else {
+    ok()
+  }
 }
 
 export default showAlert
