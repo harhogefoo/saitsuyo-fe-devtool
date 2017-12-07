@@ -3,26 +3,24 @@ $color-base: #123456;
 $color-sub: #333333;
 $color-key: #ff8a8a;
 
-$fontsize-base: 16px;
-$fontsize-title: 30px;
+$font-size-base: 16px;
+$font-size-title: 30px;
 
 $color-header: #5fffff;
 $color-footer: #ff8a8a;
 
 $color-body: #Dfffff;
 
-body {
-  color: $color-base;
-  font-size: $fontsize-base;
-  background: $color-body;
-}
-
 header.header {
   background: $color-header;
+}
+
+body {
+  color: $color-base;
+  font-size: $font-size-base;
+  background: $color-body;
 }
 
 footer.footer {
   background: $color-footer;
 }
-
-

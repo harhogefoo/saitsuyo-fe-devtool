@@ -14,12 +14,12 @@ const gulpIf = require('gulp-if')
 const minimist = require('minimist')
 
 const paths = {
+  'ejs': './src/',
+  'scss': './src/',
+  'in_js': './src/',
   'html': './public/',
-  'css': './public/css/',
-  'in_js': './src/js/',
-  'ejs': './src/ejs/',
-  'scss': './src/scss/',
-  'out_js': './public/js/',
+  'css': './public/',
+  'out_js': './public/',
 }
 
 const envSettings = {
@@ -43,20 +43,25 @@ const config = {
     }),
   },
   webpackOptions: {
-    entry: paths.in_js + 'main.js',
+    entry: {
+      'ATS_001/js/index': paths.in_js + 'ATS_001/js/index.js',
+      'ATS_002/js/index': paths.in_js + 'ATS_002/js/index.js',
+    },
     output: {
-      filename: 'app.bundle.js',
+      path: '/public',
+      filename: '[name].bundle.js',
     },
     plugins: webpackPlugins,
-    devtool: 'source-map'
+    devtool: 'source-map',
   },
   envProduction: production,
 }
 
 gulp.task('ejs', () => {
   // _ から始まるファイルはコンパイル対象外。インクルード用のファイルのため
-  gulp.src([paths.ejs + '**/*.ejs', '!' + paths.ejs + '**/_*.ejs'])
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
+  gulp.src(
+    [paths.ejs + '**/*.ejs', '!' + paths.ejs + '**/_*.ejs']
+  ).pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(ejs({}, {}, {'ext': '.html'}))
     .pipe(gulp.dest(paths.html))
 })
