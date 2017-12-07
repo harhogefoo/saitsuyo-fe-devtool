@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<% var meta = { title: 'TOP', desc:'TOPです。' } %>
+<% var path = { css: '../scss/index.css' } %>
+<%- include('../../common/ejs/_header', { meta: meta, path: path }) %>
+<body>
+<%- include('../../common/ejs/_header_menu') %>
+<h1>TOP</h1>
+<h2>目次</h2>
+<ul>
+  <li>要素1</li>
+  <li>要素2</li>
+  <li>要素3</li>
+  <li>要素4</li>
+  <li>要素5</li>
+  <li>要素6</li>
+  <li>要素7</li>
+  <li>要素8</li>
+</ul>
+
+<script type="text/javascript" src="../js/index.bundle.js"></script>
+<%- include('../../common/ejs/_footer') %>
+</body>
+</html>
+
